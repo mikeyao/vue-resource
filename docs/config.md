@@ -12,15 +12,17 @@ Set default values inside your Vue component options.
 ```js
 new Vue({
 
-    http: {
-      root: '/root',
-      headers: {
-        Authorization: 'Basic YXBpOnBhc3N3b3Jk'
-      }
+  http: {
+    root: '/root',
+    headers: {
+      Authorization: 'Basic YXBpOnBhc3N3b3Jk'
     }
+  }
 
 })
 ```
+
+Note that for the root option to work, the path of the request must be relative. This will use this the root option: `Vue.http.get('someUrl')` while this will not: `Vue.http.get('/someUrl')`.
 
 ## Webpack/Browserify
 

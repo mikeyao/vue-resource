@@ -1,40 +1,47 @@
 {
   "name": "vue-resource",
-  "version": "0.9.1",
-  "description": "A web request service for Vue.js",
+  "version": "1.2.0",
   "main": "dist/vue-resource.common.js",
   "jsnext:main": "dist/vue-resource.es2015.js",
-  "scripts": {
-    "build": "node build/build.js",
-    "test": "webpack --config test/webpack.config.js"
+  "description": "The HTTP client for Vue.js",
+  "homepage": "https://github.com/pagekit/vue-resource#readme",
+  "license": "MIT",
+  "keywords": [
+    "vue",
+    "xhr",
+    "http",
+    "ajax"
+  ],
+  "bugs": {
+    "url": "https://github.com/pagekit/vue-resource/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vuejs/vue-resource.git"
+    "url": "git+https://github.com/pagekit/vue-resource.git"
   },
-  "keywords": [
-    "vue",
-    "vuejs",
-    "resource",
-    "mvvm"
-  ],
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/vuejs/vue-resource/issues"
+  "scripts": {
+    "test": "jest --env=node",
+    "build": "node build/build.js",
+    "release": "node build/release.js",
+    "webpack": "webpack --config test/webpack.config.js"
   },
-  "homepage": "https://github.com/vuejs/vue-resource#readme",
+  "browser": {
+    "got": false
+  },
+  "dependencies": {
+    "got": "^6.7.1"
+  },
   "devDependencies": {
-    "babel-core": "^6.9.1",
-    "babel-loader": "^6.2.4",
-    "babel-plugin-transform-runtime": "^6.9.0",
-    "babel-preset-es2015-loose": "^7.0.0",
-    "babel-preset-es2015-loose-rollup": "^7.0.0",
-    "babel-runtime": "^6.9.2",
-    "jasmine-core": "^2.3.4",
-    "rollup": "^0.33.0",
-    "rollup-plugin-babel": "^2.6.1",
-    "uglify-js": "^2.6.4",
-    "vue": "^1.0.25",
-    "webpack": "^1.13.1"
+    "buble": "^0.15.2",
+    "buble-loader": "^0.4.0",
+    "generate-release": "^0.10.1",
+    "jasmine-core": "^2.5.2",
+    "jest": "^18.1.0",
+    "replace-in-file": "^2.0.1",
+    "rollup": "^0.41.4",
+    "rollup-plugin-buble": "^0.15.0",
+    "uglify-js": "^2.7.5",
+    "vue": "^2.1.10",
+    "webpack": "^2.2.0"
   }
 }

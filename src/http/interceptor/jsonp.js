@@ -10,11 +10,5 @@ export default function (request, next) {
         request.client = jsonpClient;
     }
 
-    next((response) => {
-
-        if (request.method == 'JSONP') {
-            response.data = response.json();
-        }
-
-    });
+    next();
 }

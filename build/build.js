@@ -1,23 +1,18 @@
 var fs = require('fs');
 var rollup = require('rollup');
 var uglify = require('uglify-js');
-var babel = require('rollup-plugin-babel');
+var buble = require('rollup-plugin-buble');
 var package = require('../package.json');
-var version = process.env.VERSION || package.version;
 var banner =
     "/*!\n" +
-    " * vue-resource v" + version + "\n" +
-    " * https://github.com/vuejs/vue-resource\n" +
+    " * vue-resource v" + package.version + "\n" +
+    " * https://github.com/pagekit/vue-resource\n" +
     " * Released under the MIT License.\n" +
     " */\n";
 
 rollup.rollup({
   entry: 'src/index.js',
-  plugins: [
-    babel({
-      presets: ['es2015-loose-rollup']
-    })
-  ]
+  plugins: [buble()]
 })
 .then(function (bundle) {
   return write('dist/vue-resource.js', bundle.generate({
@@ -33,6 +28,7 @@ rollup.rollup({
 })
 .then(function (bundle) {
   return write('dist/vue-resource.es2015.js', bundle.generate({
+    format: 'es',
     banner: banner,
     footer: 'export { Url, Http, Resource };'
   }).code, bundle);
