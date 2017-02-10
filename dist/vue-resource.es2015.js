@@ -695,7 +695,7 @@ Url.params = function (obj) {
 
     serialize(params, obj);
 
-    return params.join('&').replace(/%20/g, '+');
+    return params.join('&');
 };
 
 /**
